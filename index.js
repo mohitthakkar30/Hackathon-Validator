@@ -3,8 +3,8 @@ const dotenv = require("dotenv").config();
 const githubToken = process.env.GITHUB_TOKEN;
 const { Octokit } = require("@octokit/core");
 
-const hackStartDate = new Date("2023-01-01T00:00:00Z");
-const hackEndDate = new Date("2023-01-31T00:00:00Z");
+const hackStartDate = new Date("2023-01-06T00:00:00Z");
+const hackEndDate = new Date("2023-01-08T00:00:00Z");
 
 const octokit = new Octokit({
     auth: githubToken,
@@ -41,7 +41,7 @@ const octokit = new Octokit({
     );
 
     firstCommitDates.forEach((date, index) => {
-      if (date > hackathonStartDate && date < hackathonEndDate) {
+      if (date > hackStartDate && date < hackEndDate) {
         console.log("Between Hackathon Dates");
         const link = repositoryLinks[index];
         validRepos.push(link);
